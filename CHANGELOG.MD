@@ -4,6 +4,12 @@ Alle belangrijke wijzigingen in **AI Site Chatbot** worden in dit bestand bijgeh
 
 ---
 
+## [2.1.1] - 2025-11-19
+### Added
+- Minor fixes.
+
+---
+
 ## [2.1.0] - 2025-11-19
 ### Added
 - Eerste publieke release van **AI Site Chatbot**.
