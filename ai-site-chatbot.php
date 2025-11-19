@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // === CONSTANTEN ===
-define( 'AISC_VERSION', '2.1.0' );
+define( 'AISC_VERSION', '2.1.2' );
 define( 'AISC_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AISC_URL', plugin_dir_url( __FILE__ ) );
 
