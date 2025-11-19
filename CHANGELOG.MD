@@ -4,6 +4,17 @@ Alle belangrijke wijzigingen in **AI Site Chatbot** worden in dit bestand bijgeh
 
 ---
 
+## [2.1.2] - 2025-11-19
+
+### Added
+- Plugin iconen toegevoegd (`icon-128x128.png` en `icon-256x256.png`) voor WordPress admin en automatische updates via GitHub.
+- Twee WordPress.org banners ontworpen en toegevoegd (`banner-772x250.png` en `banner-1554x500.png`) ter voorbereiding op publicatie in de Plugin Directory.
+
+### Improved
+- Plugin metadata en visuele presentatie geoptimaliseerd voor betere herkenbaarheid in WordPress.
+
+---
+
 ## [2.1.1] - 2025-11-19
 ### Added
 - Minor fixes.
