@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/Websitetoday/ai-site-chatbot
  * GitHub Plugin URI: https://github.com/Websitetoday/ai-site-chatbot
  * Description:       Voeg een AI-chatbot toe aan je website die automatisch inhoud indexeert en via de Websitetoday-proxy antwoord geeft. Gratis versie met maandelijkse limiet.
- * Version:           3.0.1
+ * Version:           3.0.2
  * Author:            Websitetoday.nl
  * Author URI:        https://www.websitetoday.nl
  * Text Domain:       ai-site-chatbot
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) exit;
 // ─────────────────────────────────────────
 // CONSTANTEN
 // ─────────────────────────────────────────
-define('AISC_VERSION', '3.0.1');
+define('AISC_VERSION', '3.0.2');
 define('AISC_PATH', plugin_dir_path(__FILE__));
 define('AISC_URL', plugin_dir_url(__FILE__));
 
