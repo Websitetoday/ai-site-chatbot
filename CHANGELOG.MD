@@ -4,6 +4,12 @@ Alle belangrijke wijzigingen in **AI Site Chatbot** worden in dit bestand bijgeh
 
 ---
 
+## [3.0.1] – 2025-11-20
+### Fixed
+- Fout opgelost binnen de update functie.
+
+---
+
 ## [3.0.0] – 2025-11-20
 
 ### Added

@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/Websitetoday/ai-site-chatbot
  * GitHub Plugin URI: https://github.com/Websitetoday/ai-site-chatbot
  * Description:       Voeg een AI-chatbot toe aan je website die automatisch inhoud indexeert en via de Websitetoday-proxy antwoord geeft. Gratis versie met maandelijkse limiet.
- * Version:           3.0.0
+ * Version:           3.0.1
  * Author:            Websitetoday.nl
  * Author URI:        https://www.websitetoday.nl
  * Text Domain:       ai-site-chatbot
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) exit;
 // ─────────────────────────────────────────
 // CONSTANTEN
 // ─────────────────────────────────────────
-define('AISC_VERSION', '3.0.0');
+define('AISC_VERSION', '3.0.1');
 define('AISC_PATH', plugin_dir_path(__FILE__));
 define('AISC_URL', plugin_dir_url(__FILE__));
 
@@ -60,7 +60,7 @@ add_action('admin_enqueue_scripts', function ($hook) {
 // ─────────────────────────────────────────
 // Plugin Update Checker
 // ─────────────────────────────────────────
-require_once __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
+require_once __DIR__ . '/plugin-update-checker-aisc/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
