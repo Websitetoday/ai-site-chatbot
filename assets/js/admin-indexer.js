@@ -1,18 +1,40 @@
 /**
- * AI Site Chatbot – Admin Indexer (Free Edition)
+ * AI Site Chatbot – Verbeterde Admin Indexer
  * Ontwikkeld door Websitetoday.nl
  */
 
 jQuery(document).ready(function ($) {
+
+	// Cache DOM
 	const $btn = $("#aisc-start-index");
 	const $bar = $("#aisc-progress");
+	const $count = $("#aisc-index-count");
+	const $last = $("#aisc-last-indexed");
+	const $noticeArea = $("#aisc-notice-area");
 
+	// Helper: admin notice
+	function showNotice(type, message) {
+		const icon = type === "success" ? "✔️" :
+		             type === "error" ? "❌" : "ℹ️";
+
+		const html = `
+			<div class="aisc-notice ${type}">
+				<span class="aisc-icon">${icon}</span>
+				${message}
+			</div>
+		`;
+
+		$noticeArea.html(html);
+	}
+
+	// Helper: progress bar
 	function setProgress(p) {
-		p = Math.max(0, Math.min(100, p | 0));
+		p = Math.max(0, Math.min(100, Math.floor(p)));
 		$bar.css({ width: p + "%", display: "block" }).text(p + "%");
 	}
 
-	function callAjax() {
+	// AJAX call
+	function startIndexing() {
 		return $.ajax({
 			url: aiscIndex.ajaxurl,
 			type: "POST",
@@ -24,38 +46,62 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
+	//---------------------------------------------------------------------
+	// CLICK HANDLER
+	//---------------------------------------------------------------------
+
 	$btn.on("click", async function () {
-		$btn.prop("disabled", true).text("Bezig met indexeren...");
-		setProgress(10);
+
+		// Disable UI
+		$btn.prop("disabled", true).text("Indexeren...");
+		setProgress(8);
+		showNotice("info", "Indexeren gestart…");
 
 		try {
-			const res = await callAjax();
-			setProgress(90);
+			const res = await startIndexing();
 
-			if (res && res.success) {
-				const count = res.data.count || 0;
-				const msg = res.data.message || `✅ ${count} items geïndexeerd.`;
+			setProgress(85);
 
-				// Update UI
-				$("#aisc-index-count").text(count);
-				const now = new Date().toISOString().slice(0, 19).replace("T", " ");
-				$("#aisc-last-indexed").text(now);
-
-				setProgress(100);
-				alert(msg);
-
-				// Knop blokkeren wegens maandlimiet
-				$btn.text("Maandlimiet bereikt").prop("disabled", true);
-				return;
+			if (!res || !res.success) {
+				throw new Error(res?.data?.message || "Onbekende fout.");
 			}
 
-			throw new Error((res && res.data && res.data.message) || "Onbekende fout tijdens indexeren.");
-		} catch (err) {
-			console.error("❌ Indexering mislukt:", err);
-			alert("❌ Indexering mislukt: " + (err.message || "Onbekende fout"));
+			//---------------------------------------------------------
+			// SUCCESVOL
+			//---------------------------------------------------------
+
+			const count = res.data.count || 0;
+			const now = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+			$count.text(count);
+			$last.text(now);
+
+			setProgress(100);
+
+			showNotice("success", `✔️ Indexering voltooid — ${count} items opgeslagen.`);
+
+			// Knop definitief blokkeren
+			$btn.text("Maandlimiet bereikt (1× per 30 dagen)").prop("disabled", true);
+
+		} catch (error) {
+
+			console.error("Indexering mislukt:", error);
+
+			setProgress(100);
+			showNotice("error", "❌ Indexeren mislukt: " + error.message);
+
+			// Knop terugzetten
 			$btn.prop("disabled", false).text("Website herindexeren");
+
 		} finally {
-			setTimeout(() => $bar.fadeOut(300), 800);
+
+			// Progressbar vertragen voor UI smoothness
+			setTimeout(() => {
+				$bar.fadeOut(400, () => {
+					$bar.css("width", "0").text("");
+				});
+			}, 600);
+
 		}
 	});
 });

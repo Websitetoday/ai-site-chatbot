@@ -1,47 +1,83 @@
 /**
- * AI Site Chatbot – Admin Styles (Free Edition v1.7.0)
+ * AI Site Chatbot – Admin Styles
  * Ontwikkeld door Rick Memelink – Websitetoday.nl
  */
 
-/* === ALGEMENE ADMIN LAYOUT === */
+/* ==========================================================================
+   ALGEMENE ADMIN LAYOUT
+   ========================================================================== */
+
 .wrap h1 {
 	color: #134475;
 	font-weight: 700;
 }
+
 .wrap hr {
 	border: none;
 	border-top: 1px solid #e5e5e5;
 	margin: 24px 0;
 }
 
-/* === INDEXER-KNOP & PROGRESS BAR === */
-#aisc-start-index {
-	background: #134475;
-	border-color: #134475;
-}
-#aisc-start-index:hover {
-	background: #0f3767;
-	border-color: #0f3767;
-}
-#aisc-progress {
-	display: none;
-	background: #134475;
-	color: #fff;
-	height: 18px;
-	border-radius: 4px;
-	margin-top: 8px;
-	padding: 0 6px;
-	line-height: 18px;
-	width: 0%;
-	font-size: 13px;
-	font-weight: 600;
-	transition: width 0.4s ease;
+.aisc-admin-wrap {
+	max-width: 1200px;
 }
 
-/* === ADMIN NOTICES (JS meldingen) === */
+.aisc-admin-title {
+	margin-bottom: 10px;
+	font-size: 26px;
+	font-weight: 600;
+	color: #134475;
+}
+
+/* ==========================================================================
+   TAB NAVIGATIE
+   ========================================================================== */
+
+.aisc-nav-tabs .nav-tab {
+	font-size: 14px;
+	padding: 10px 16px;
+	border-radius: 6px 6px 0 0;
+	background: #f5f7fb;
+	border-color: #dfe3ec;
+	color: #333;
+}
+
+.aisc-nav-tabs .nav-tab-active {
+	background: #ffffff;
+	border-bottom-color: #ffffff;
+	color: #134475 !important;
+	font-weight: 600;
+}
+
+/* PRO pill in tabs */
+.aisc-pro-pill,
+.aisc-pro-pill-small {
+	background: #e9752b;
+	color: #fff;
+	padding: 2px 8px;
+	border-radius: 8px;
+	font-size: 10px;
+	margin-left: 4px;
+}
+
+/* Tab content block */
+.aisc-tab-content {
+	background: #fff;
+	padding: 24px;
+	border-radius: 10px;
+	border: 1px solid #e5e7ec;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+	margin-top: -1px;
+}
+
+/* ==========================================================================
+   NOTICES
+   ========================================================================== */
+
 #aisc-notice-area {
 	margin-top: 15px;
 }
+
 .aisc-notice {
 	border-left: 4px solid #134475;
 	padding: 12px 14px;
@@ -55,64 +91,67 @@
 	animation: fadeIn 0.3s ease-out;
 	box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+
 .aisc-notice.success {
 	border-left-color: #0E7C3A;
 	background: #f5fbf7;
 }
+
 .aisc-notice.error {
 	border-left-color: #E9752B;
 	background: #fff8f5;
 }
+
 .aisc-notice.info {
 	border-left-color: #134475;
 	background: #f3f7ff;
 }
+
 .aisc-icon {
 	font-size: 16px;
 }
+
 @keyframes fadeIn {
 	from { opacity: 0; transform: translateY(-6px); }
-	to { opacity: 1; transform: translateY(0); }
+	to   { opacity: 1; transform: translateY(0); }
 }
 
-/* === TABELLEN EN TEKST === */
+/* ==========================================================================
+   TABLES & INPUTS
+   ========================================================================== */
+
 .form-table th {
 	color: #134475;
 	width: 220px;
+	vertical-align: top;
 }
+
 .form-table input[type="text"],
+.form-table input[type="email"],
 .form-table input[type="password"],
 .form-table select {
 	max-width: 320px;
 }
+
 .description {
 	font-size: 13px;
 	color: #666;
 }
-p.description strong {
-	color: #134475;
+
+/* ==========================================================================
+   INDEXER
+   ========================================================================== */
+
+#aisc-start-index {
+	background: #134475;
+	border-color: #134475;
 }
 
-/* === EXTRA: kleine UX verbeteringen === */
-button.button-primary:disabled {
-	opacity: 0.6;
-	cursor: not-allowed;
+#aisc-start-index:hover {
+	background: #0f3767;
+	border-color: #0f3767;
 }
 
-/* Algemene badges */
-.aisc-badge {
-	display: inline-block;
-	padding: 4px 10px;
-	border-radius: 12px;
-	font-weight: 600;
-	font-size: 13px;
-}
-.aisc-badge-proxy {
-	background: #F3F5FF;
-	color: #134475;
-}
-
-/* Indexer voortgang */
 #aisc-progress {
 	display: none;
 	background: #134475;
@@ -124,22 +163,258 @@ button.button-primary:disabled {
 	line-height: 18px;
 	width: 0%;
 	transition: width 0.4s ease;
+	font-size: 13px;
+	font-weight: 600;
 }
 
-/* Waarschuwingsmeldingen */
-.aisc-warning {
-	color: #E9752B;
-	font-weight: 500;
+/* ==========================================================================
+   PRO LOCK SECTIES
+   ========================================================================== */
+
+.aisc-locked-box {
+	background: #fff;
+	padding: 30px;
+	border-left: 4px solid #e9752b;
+	border-radius: 10px;
+	max-width: 700px;
+	margin-top: 25px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-/* Footer */
+.aisc-locked-title {
+	font-size: 18px;
+	font-weight: 600;
+	color: #134475;
+	margin-bottom: 8px;
+}
+
+/* Feature boxes in Pro tab */
+.aisc-pro-grid {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	margin-top: 20px;
+}
+
+.aisc-pro-feature {
+	padding: 16px;
+	background: #f7f8fc;
+	border-radius: 10px;
+	border: 1px solid #e3e6ee;
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.aisc-pro-feature-icon {
+	font-size: 20px;
+}
+
+/* CTA button */
+.aisc-upgrade-btn,
+.aisc-upgrade-btn-large {
+	display: inline-block;
+	background: #e9752b;
+	color: #fff;
+	text-decoration: none;
+	padding: 12px 18px;
+	border-radius: 6px;
+	font-weight: 600;
+	margin-top: 16px;
+}
+
+.aisc-upgrade-btn-large {
+	font-size: 16px;
+	padding: 14px 24px;
+}
+
+.aisc-upgrade-btn:hover,
+.aisc-upgrade-btn-large:hover {
+	opacity: .9;
+}
+
+/* ==========================================================================
+   CHANGELOG
+   ========================================================================== */
+
+.aisc-changelog-box {
+	background:#fff;
+	padding:24px;
+	border-radius:10px;
+	max-width:900px;
+	box-shadow:0 4px 10px rgba(0,0,0,0.05);
+	border:1px solid #e5e7ec;
+	margin-top:20px;
+	overflow:auto;
+}
+
+.aisc-changelog-box h2,
+.aisc-changelog-box h3 {
+	color:#134475;
+	margin-top:22px;
+	margin-bottom:8px;
+}
+
+.aisc-changelog-error {
+	background:#fff3f3;
+	padding:16px;
+	border-left:4px solid #d63638;
+	border-radius:6px;
+	max-width:650px;
+	color:#a11a1d;
+	margin-top:20px;
+}
+
+/* ==========================================================================
+   UPGRADE VERGELIJKS-TABEL
+   ========================================================================== */
+
+.aisc-compare-table {
+	margin-top:40px;
+	max-width:900px;
+	border-collapse:collapse;
+	width:100%;
+	background:#fff;
+	border-radius:10px;
+	overflow:hidden;
+	box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.aisc-compare-table th,
+.aisc-compare-table td {
+	padding:14px 18px;
+	border-bottom:1px solid #eef0f5;
+}
+
+.aisc-compare-table th {
+	background:#f5f7fb;
+	font-weight:600;
+	color:#134475;
+	text-align:left;
+}
+
+.aisc-check {
+	color:#2ecc71;
+	font-weight:700;
+}
+
+.aisc-cross {
+	color:#e74c3c;
+	font-weight:700;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 .aisc-footer-note {
 	margin-top: 18px;
 	color: #777;
 	font-size: 12px;
 }
 
-/* Notice area */
-#aisc-notice-area {
-	margin-top: 10px;
+/* ==========================================================================
+   CREDITS CARD (terug zoals vroeger)
+   ========================================================================== */
+
+.aisc-credits-card {
+	margin: 16px 0 24px;
+	padding: 16px 18px;
+	border-radius: 14px;
+	background: #0b1020;
+	color: #f4f4f9;
+	box-shadow: 0 14px 35px rgba(0,0,0,0.30);
+	max-width: 520px;
+	position: relative;
+	overflow: hidden;
+}
+
+.aisc-credits-card::before {
+	content: "";
+	position: absolute;
+	inset: -40%;
+	background:
+		radial-gradient(circle at 0 0, rgba(233,117,43,0.25), transparent 55%),
+		radial-gradient(circle at 100% 100%, rgba(19,68,117,0.35), transparent 50%);
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+.aisc-credits-inner {
+	position: relative;
+	z-index: 1;
+}
+
+.aisc-credits-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 8px;
+}
+
+.aisc-credits-title {
+	font-weight: 600;
+	font-size: 15px;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.aisc-credits-badge {
+	font-size: 12px;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: rgba(2, 247, 132, 0.12);
+	color: #55f39b;
+	border: 1px solid rgba(2, 247, 132, 0.4);
+}
+
+.aisc-credits-progress {
+	position: relative;
+	height: 9px;
+	border-radius: 999px;
+	background: rgba(255,255,255,0.06);
+	overflow: hidden;
+	margin: 6px 0 8px;
+}
+
+.aisc-credits-progress-inner {
+	height: 100%;
+	border-radius: inherit;
+	transition: width .4s ease-out, background .3s ease-out;
+}
+
+.aisc-credits-ok {
+	background: linear-gradient(90deg, #02f784, #31cfff);
+}
+.aisc-credits-warn {
+	background: linear-gradient(90deg, #f9c74f, #f8961e);
+}
+.aisc-credits-danger {
+	background: linear-gradient(90deg, #f94144, #f3722c);
+}
+
+.aisc-credits-meta {
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	opacity: 0.9;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.aisc-credits-meta span:last-child {
+	text-align: right;
+}
+
+.aisc-credits-card .description {
+	margin-top: 6px;
+	font-size: 11.5px;
+}
+
+.aisc-credits-error {
+	color: #f9b4a8;
+	font-size: 12px;
+	margin-top: 6px;
 }
