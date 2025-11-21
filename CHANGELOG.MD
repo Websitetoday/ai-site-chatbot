@@ -4,6 +4,37 @@ Alle belangrijke wijzigingen in **AI Site Chatbot** worden in dit bestand bijgeh
 
 ---
 
+## [3.0.0] – 2025-11-20
+
+### Added
+- **Volledig nieuw modulair adminpaneel**:
+  - Nieuw top-level menu *AI Site Chatbot* in de WordPress-sidebar.
+  - Tabstructuur: **Instellingen**, **Personaliseer (Pro)**, **Uitleg**, **Changelog**, **Word Pro**.
+  - Nieuwe uitgebreide *Word Pro*-pagina met premium-feature overzicht, voordelen, vergelijkingstabel en upgrade-CTA.
+- **Pro Locking-systeem** toegevoegd:
+  - Slot-icoontjes in navigatie
+  - Afgeschermde premium-secties met upgrade-boxen
+- **Automatisch laden van changelog vanuit GitHub** via raw-bestand.
+
+### Improved
+- **Instellingenpagina volledig vernieuwd**:
+  - Modern ontwerp, betere typografie, strakkere layout.
+  - Oude visuele **AI Credits Card** met gradient-balk en proxy-statistieken opnieuw geïmplementeerd.
+  - Betere foutmeldingen wanneer de proxy niet beschikbaar is.
+- **Verbeterde navigatie**:
+  - ‘Instellingen’-link vanuit Plugins → AI Site Chatbot werkt nu correct.
+  - Word Pro-menu-item toont nu een slot-icoon.
+- **Changelog-tab verbeterd**:
+  - Betere foutafhandeling bij GitHub (404/timeout).
+  - Link naar fallback CHANGELOG op GitHub.
+
+### Fixed
+- Fout opgelost waarbij changelog een 404 gaf door gebruik van `blob/` i.p.v. `raw/`.
+- Syntaxfouten in `ai-site-chatbot.php` (extra haakje) verholpen.
+- Pad-referenties naar admin tab-bestanden gecorrigeerd.
+
+---
+
 ## [2.1.2] - 2025-11-19
 
 ### Added
