@@ -55,7 +55,7 @@ if (is_wp_error($stats)) {
 	$month_key = $stats['month'] ?? date('Y-m');
 	$dt        = DateTime::createFromFormat('Y-m-d', $month_key . '-01');
 
-	$month_label = $dt ? date_i18n('F Y', $dt->getTimestamp()) : $month_key;
+	$month_label = ($dt instanceof DateTime) ? date_i18n('F Y', $dt->getTimestamp()) : $month_key;
 
 	$reset_hint = $stats['reset_hint'] ?? '';
 	if ($reset_hint) {
@@ -138,6 +138,7 @@ if (is_wp_error($stats)) {
 	<?php endif; ?>
 
 	<div id="aisc-progress" style="display:none;height:10px;background:#134475;margin-top:12px;width:0;border-radius:6px;transition:width .3s;"></div>
+	<div id="aisc-notice-area" style="margin-top:12px;"></div>
 
 	<hr style="margin:40px 0;">
 
