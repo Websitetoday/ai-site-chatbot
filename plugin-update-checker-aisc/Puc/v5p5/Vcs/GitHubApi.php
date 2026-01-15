@@ -2,6 +2,11 @@
 
 namespace YahnisElsts\PluginUpdateChecker\v5p5\Vcs;
 
+// Explicitly load Parsedown if not already loaded
+if ( !class_exists('Parsedown', false) ) {
+	require_once dirname(__DIR__, 3) . '/vendor/Parsedown.php';
+}
+
 use Parsedown;
 
 if ( !class_exists(GitHubApi::class, false) ):
