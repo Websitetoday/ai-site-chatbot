@@ -4,7 +4,7 @@ namespace YahnisElsts\PluginUpdateChecker\v5p5\Vcs;
 
 // Explicitly load Parsedown if not already loaded
 if ( !class_exists('Parsedown', false) ) {
-	require_once dirname(dirname(dirname(__DIR__))) . '/vendor/Parsedown.php';
+	require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/vendor/Parsedown.php';
 }
 
 use Parsedown;
